@@ -1,0 +1,6 @@
+{
+  "name": "LeetCode Roaster",
+  "description": "A fun and interactive app that takes two LeetCode usernames, fetches their stats, and uses Gemini to generate a hilarious roast for one user while praising the other.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
