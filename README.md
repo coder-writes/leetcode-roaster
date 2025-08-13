@@ -84,4 +84,4 @@ MIT
 
 ---
 
-> Made with ❤️ by [Your Name](https://github.com/your-username)
+> Made with ❤️ by [Rishi Verma](https://github.com/coder-writes)
