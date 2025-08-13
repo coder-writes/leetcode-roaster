@@ -19,8 +19,16 @@ return (
         {/* Subtle background gradient blob */}
         <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-indigo-200 via-purple-100 to-transparent rounded-full opacity-40 blur-2xl pointer-events-none transition-all duration-700 group-hover:scale-110" />
         <div className="flex flex-col items-center z-10 relative">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-300 flex items-center justify-center shadow-lg mb-3 border-4 border-white/60">
-                <span className="text-2xl font-bold text-white select-none">{username[0]?.toUpperCase()}</span>
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-300 flex items-center justify-center shadow-lg mb-3 border-4 border-white/60 overflow-hidden">
+                {data.profile.userAvatar ? (
+                    <img
+                        src={data.profile.userAvatar}
+                        alt={`${username}'s avatar`}
+                        className="w-full h-full object-cover"
+                    />
+                ) : (
+                    <span className="text-2xl font-bold text-white select-none">{username[0]?.toUpperCase()}</span>
+                )}
             </div>
             <h3 className="text-xl font-bold text-slate-800 text-center tracking-wide">{username}</h3>
             <div className="mt-4 w-full space-y-3 text-base text-slate-700">
@@ -32,12 +40,12 @@ return (
                 <div className="flex items-center gap-2 justify-center">
                     <ProblemIcon className={`w-5 h-5 ${accentColor}`} />
                     <span className="font-medium">Solved</span>
-                    <span className="ml-2 px-2 py-0.5 rounded bg-green-100 text-green-800 font-semibold text-sm">{data.solvedStats.totalSolved}</span>
+                    <span className="ml-2 px-2 py-0.5 rounded bg-green-100 text-green-800 font-semibold text-sm">{(data.solvedStats.totalSolved)/2}</span>
                     <span className="ml-2 text-xs text-slate-500">(E:{data.solvedStats.easySolved}, M:{data.solvedStats.mediumSolved}, H:{data.solvedStats.hardSolved})</span>
                 </div>
                 <div className="flex items-center gap-2 justify-center">
                     <ContributionIcon className={`w-5 h-5 ${accentColor}`} />
-                    <span className="font-medium">Contrib</span>
+                    <span className="font-medium">Contribution</span>
                     <span className="ml-2 px-2 py-0.5 rounded bg-yellow-100 text-yellow-800 font-semibold text-sm">{data.contributionPoints}</span>
                 </div>
                 <div className="flex items-center gap-2 justify-center">

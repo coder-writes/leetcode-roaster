@@ -1,6 +1,15 @@
+
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: "AIzaSyCVH6OSO8oGjMP9V5uDbMscUSdbmT9_6Xk" });
+// Use Vite's environment variable system for frontend
+
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+if (!apiKey) {
+  throw new Error(
+    'Google Gemini API key is missing! Please create a .env file in your project root with VITE_GEMINI_API_KEY=your_key and restart the dev server.'
+  );
+}
+const ai = new GoogleGenAI({ apiKey });
 
 export const generateRoast = async (
   user1Data,
